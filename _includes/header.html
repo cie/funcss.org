@@ -1,0 +1,19 @@
+<header class="navbar navbar-inverse">
+
+  <div class="stars"></div>
+
+  <ul class="nav navbar-nav navbar-right">
+      {% for page in site.pages %}
+          {% if page.title %}
+              <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+          {% endif %}
+      {% endfor %}
+  </ul>
+  <a class="brand" href="{{ site.baseurl }}">&nbsp;</a>
+  <div class="subtitle">Functional style sheets.  </div>
+  <div class="example">
+       .header { background-position: 0 calc(mouse-y() - 600px) }<br>
+       .stars { opacity: calc(mouse-y() / 200px) }
+  </div>
+
+</header>

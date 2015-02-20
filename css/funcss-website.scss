@@ -1,0 +1,128 @@
+---
+---
+
+@import "../_sass/_syntax-highlighting.scss";
+
+/* CSS declarations go here */
+
+body {
+  background: #eee url(/img/bodybg.png);
+  background-attachment: fixed;
+
+}
+
+.container {
+  max-width: 760px;
+  padding :0;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  background: #fff;
+}
+
+
+.navbar .example {
+  font-family: monospace;
+  color: #aaa;
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+  font-size: small;
+  text-align: right;
+}
+
+.navbar-inverse {
+  background-image: url(/img/headerbg.png);
+  background-repeat: repeat-x;
+  background-color: #01032b;
+}
+
+.navbar-inverse .navbar-nav  {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: rgba(255,255,255,0.9);
+}
+.navbar-inverse .navbar-nav > .open > a {
+  background: #337ab7;
+}
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background: #337ab7;
+}
+
+.stars {
+  background: url(/img/stars.png) repeat;
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+.colorful {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: url(/img/textbg.jpg);
+}
+
+.logochars {
+  font-size:0;
+  background: url(/img/logo-t.png) 50% 50%;
+  width: 80px;
+  height: 80px;
+  position: relative;
+
+}
+
+.navbar {
+  margin: 0;
+  padding: 15px 30px;
+  z-index: 2;
+  position: relative;
+  border-radius: 0;
+}
+.navbar.navbar-inverse {
+  border: none;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar h1 {
+  margin: 0;
+  text-shadow: 0 0 8px rgba(25,45,64,0.5);
+  color: white;
+}
+
+.brand {
+  height: 45px; width: 200px;
+  background: url(/img/logo.png) 0 0 no-repeat;
+  margin-left: -10px;
+  display: block;
+  z-index: 100;
+  position: relative;
+}
+
+.subtitle {
+  color: white;
+  text-shadow: 0 0 4px rgba(25,45,64,0.5);
+}
+
+
+article {
+  padding: 1px 30px 20px;
+  text-align: justify;
+  box-shadow: 0 15px 5px -15px rgba(0,0,0,0.5) inset;
+}
+
+.feature {
+  counter-increment: feature;
+  list-style: none;
+}
+.feature h3::before{
+  content: "#" counter(feature) " ";
+  color: #aaa;
+  font-weight: bold;
+  font-family: monospace;
+}
