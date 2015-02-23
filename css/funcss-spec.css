@@ -1,0 +1,13 @@
+.maturity {
+    position: fixed;
+    right: 10%;
+    width: 150px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.maturity-wd {
+    background: #ffb000;
+}

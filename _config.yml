@@ -9,6 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://funcss.org" # the base hostname & protocol for your site
 twitter_username: funcss
 github_username:  funcss-lang
+slogan: Functional Style Sheets.
 
 # Build settings
 markdown: kramdown
