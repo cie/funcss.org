@@ -49,7 +49,7 @@ $(body).on("mousemove", function(e) {
 });
 FuncSS.functions({
     starsOpacity: function() {
-        return mouseY.get();
+        return mouseY.get() / 200;
     }
 });
 {% endhighlight %}
