@@ -6,8 +6,6 @@ title: Features
 
 ## Features
 
-Whose features would you like to hear about?
-
 The **FuncSS Language** is currently under development. You can read about its planned features on its [Trello board](https://trello.com/b/EpfkVhaA/funcss).
 
 The **specifications** will reflect the finalized plans for the language. They are also being developed, you can read their content at the [Specifications](/spec/) page.
