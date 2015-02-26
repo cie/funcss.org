@@ -13,8 +13,8 @@ The FuncSS specification is organized in modules and levels, similarly to the CS
 
     - The [**FuncSSApi Vanilla**](FuncSSApi/1/Vanilla/WD/) is the flavor optimized for jQuery users and Meteor users.
 
-    - In the future, there could be other flavors optimized for different libraries.
+    - In the future, there could be other flavors optimized for different libraries, like AngularJS.
 
 * The [**FuncSSLib**](FuncSSLib/1/WD/) defines the FuncSS runtime library.
 
-These documents can have maturity levels of *Working Draft*, *Candidate Standard* and *Standard*. Currently all of them are in the Working Draft maturity level.
+Similarly to CSS specifications, these documents can have maturity levels of *Working Draft*, *Candidate Standard* and *Standard*. Currently all of them are in the Working Draft maturity level.

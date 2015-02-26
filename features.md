@@ -17,19 +17,19 @@ FuncSS has a **reference implementation**, called FuncSS RI, which will satisfy 
 
 You can define new stylesheet functions in JavaScript. Currently only nullary functions are supported.
 
-As a simple example, let's make a function that returns the opacity of a layer of stars, according to the current time.
+As a simple example, let's make a function that returns the opacity of a layer of stars, according to the current time, in `stars.js`:
 
 {% highlight javascript %}
-// stars.js
 function starsOpacity() {
     return 1.3+(Math.cos(new Date().getHours() / 24 * Math.PI * 2)-1) * 1.2;
 }
 {% endhighlight %}
 
-Now you can use it in property values in FuncSS:
+Now you can use it in property values in FuncSS, in `stars.fcss`
 
 {% highlight css %}
-/* stars.fcss */
+@import "stars.js";
+
 body {
     background-color: navy;
 }
@@ -40,13 +40,12 @@ body {
 
 What you need to do now is to compile the FuncSS file and the JS file into one JS file with FuncSS Compiler.
 
-    funcss stars.js stars.fcss > stars.min.js
+    funcss stars.fcss > stars.min.js
 
 Then you can include the generated file into your HTML:
 
 {% highlight html %}
-    <!-- stars.html -->
-    <script src="stars.min.js"></script>
-    <img src="stars.png" class="stars-layer">
+<script src="stars.min.js"></script>
+<img src="stars.png" class="stars-layer">
 {% endhighlight %}
 
