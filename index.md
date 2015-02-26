@@ -60,7 +60,7 @@ $(function() {
 
 ### How will it work?
 
-Library functions like `t()` (which returns the time spent since page loading) will automatically set up the mechanism for notifying the system when their value changes (e.g. set up an interval). Then the CSS will be updated. When the FuncSS stylesheet does not need the value anymore (e.g. the element is removed from the DOM), the updating will be stopped (the interval will be cleared). All this will be done by a tasty mixture of the hilarious [jQuery](http://jquery.com/) and the awesome [Tracker](http://www.meteor.com/tracker) libraries, called [jqReact](https://github.com/funcss-lang/jqReact).
+Library functions like `t()` (which returns the time spent since page loading) will automatically set up the mechanism for notifying the system when their value changes (e.g. set up an interval or hook an event handler). Then the CSS will be updated whenever their value changes. When FuncSS does not need the value anymore (e.g. the element is removed from the DOM), the interval or event handler will be removed. All this will be done by a tasty mixture of the hilarious [jQuery](http://jquery.com/) and the awesome [Tracker](http://www.meteor.com/tracker) libraries, something we call [jqReact](https://github.com/funcss-lang/jqReact).
 
 ### When can we get it?
 
