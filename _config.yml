@@ -1,5 +1,5 @@
 # Site settings
-title: FuncSS
+title: FunCSS
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -9,7 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://funcss.org" # the base hostname & protocol for your site
 twitter_username: funcss
 github_username:  funcss-lang
-slogan: Functional style sheets.
+slogan: Functional CSS
 
 # Build settings
 markdown: kramdown
