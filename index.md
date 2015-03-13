@@ -12,7 +12,7 @@ layout: default
 
 ### What is it?
 
-**FunCSS** will be a stylesheet language that is a superset of CSS. But it is also a *real* programming language, with a rule-based + functional reactive paradigm. CSS elements (functions, selectors, properties, units, etc.) are first-class citizens, you can define your own versions of them, either using existing ones or with JavaScript. FunCSS code is compiled to a mixture of plain CSS and JavaScript, and runs in the browser.
+**FunCSS** will be a stylesheet language that is a superset of CSS. But it is also a *real* programming language, with a rule-based + functional reactive paradigm. CSS elements (functions, selectors, properties, units, etc.) are first-class citizens, you can define your own versions of them, either by reusing existing ones or with JavaScript. FunCSS code is compiled to a mixture of plain CSS and JavaScript, and runs in the browser.
 
 *FunCSS aims to be for CSS what AngularJS is for HTML and jQuery is for JavaScript: giving superpowers while keeping the original syntax and semantics.*
 
