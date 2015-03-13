@@ -135,3 +135,7 @@ Yes. The language specifications will be released with an open license, and the 
 ### Can I support the project?
 
 Please, send comments, suggestions and questions to <kallo.bernat@gmail.com>. Your advice is very needed.
+
+### Who is developing it?
+
+I'm Bernát Kalló, a student of EIT ICT Labs Master School at ELTE, Budapest. This is my Master's thesis project. I'm working as a web developer part-time. I'm living with my parents, my grandma, my two brothers and my sister.
