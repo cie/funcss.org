@@ -12,20 +12,35 @@ layout: default
 
 ### What is it?
 
-**FunCSS** will be a stylesheet language that looks much like CSS. But it is a *real* programming language, with advanced features for structuring code. You can define your own versions of most CSS elements, e.g. functions, selectors, properties, but also more exotic ones like units or media queries. All these will be dynamically handled either compile-time or run-time, depending on the definition.
+**FunCSS** will be a stylesheet language that is a superset of CSS. But it is also a *real* programming language, with a rule-based + functional reactive paradigm. CSS elements (functions, selectors, properties, units, etc.) are first-class citizens, you can define your own versions of them, either using existing ones or with JavaScript. FuncSS code is compiled to a mixture of plain CSS and JavaScript, and runs in the browser.
+
+*FuncSS aims to be for CSS what AngularJS is for HTML and jQuery is for JavaScript: giving superpowers while keeping the original syntax and semantics.*
 
 ### What is it good for?
 
-FuncSS aims to fulfill the following goals for a better CSS coding experience:
+It aims to fulfill the following goals:
 
-* **Cleaner, structured code.** FuncSS lets you define new elements from existing ones or with JavaScript, and this helps to avoid code repetition. You can define custom shorthand properties, which may influence child elements, add new elements, or even have a different definition in different conditions (e.g. different appearance in older browsers). This enables an aspect-oriented programming style. There's no need to add vendor prefixed properties -- FuncSS can do it automatically. 
+* **Cleaner, structured code.** FuncSS lets you define new elements from existing ones, and this helps to avoid code repetition. For example, you can define custom selectors to avoid repeating selector patterns. Similarly for functions, colors, units and many more.  You can define custom shorthand properties, which can change many properties at once -- this enables an aspect-oriented programming style. 
 
-* **Use CSS to code behavior.** CSS selectors are so powerful for specifying styles, why not use them for behavior also? Actually, jQuery does extactly that. But in FuncSS you can use a truly declarative language for defining behavior -- and it will automatically handle changes in the DOM: e.g. when the class of an element changes, its behavior will change, without writing any update code. You can define new state pseudoclasses, similar to `:hover` and `:focus`, and change style or behavior based on a custom condition or an event. You can use JavaScript to define property values and make it depend on the state of DOM elements or JavaScript variables.
+* **Safer coding.** FuncSS is statically typed, with a type system taken directly from the CSS specification. The static type system helps you find bugs compile-time. The FuncSS Lib contains the declaration of all standard CSS properties, so you can know if you have misspelled a property name, or given an invalid value (even a computed value), without rendering the page.
 
-* **Better animations.** CSS transitions and animations are cool, but there are too few easing types in CSS. No problem, in FuncSS you can define new easings, or use the ones in easings.js. In this case, FuncSS will take over the animation and do it in pure JavaScript in the background. Or do you want to do an easing in the function of scroll position? Just use an easing function in combination with the `page-scroll-y()` library function, and there you go. All styles that depend on the scroll position will be updated when the user scrolls the page.
+* **Use CSS to code behavior.** CSS selectors are so powerful for specifying styles, why not use them for behavior also? (Actually, jQuery does exactly that, but from the other direction.) In FuncSS you can use a truly declarative language for defining behavior. A minimal support for event handling is included: you can define new state pseudoclasses, similar to `:hover` and `:focus`, and change style or behavior based on an event. You can use JavaScript to define property values and make it depend on the state of DOM elements or JavaScript variables. Write less JavaScript, more FunCSS.
 
-* **Browser compatibility for free.** A compatibility layer ensures that if a browser does not support a selector or a property, the page will still work as you coded it with the latest CSS. You have to specify the browser versions you want the compiled code to support.
+* **Better animations.** CSS transitions and animations are nice, but there are only a few easing types in CSS. In FuncSS you can define new easings, or use the ones from easing.js (FuncSS will take over the animation and do it in JavaScript if a custom easing is used). Or do you want to make a style depend on the scroll position? Just use an easing function in combination with the `page-scroll-y()` library function, and there you go. All styles that depend on the scroll position will be updated  automatically when the user scrolls the page.
 
+* **Browser compatibility made easier.** A compatibility layer ensures that if a browser does not support a selector or a property, the page will still work as you coded it with the latest CSS. It will add vendor prefixes or polyfills automatically if available, without using mixins. You can define your own workarounds when no polyfill is available.
+
+### How does it differ from LESS/Sass?
+
+There are quite a few qualities in which FunCSS supersedes LESS or Sass:
+
+* **Dynamic.** LESS and  Sass are CSS preprocessors: they output CSS, so their output is static. FunCSS is a programming language that compiles to CSS and JavaScript -- it can do anything JavaScript can do. In FuncSS you can define a property that depends on the mouse position or the scroll position. In LESS and Sass you cannot.
+
+* **Semantic.** In LESS and Sass you can define variables for, say, colors. This is purely syntactic: the value of the variable is copied to the property value where you use it. In FuncSS you can define new named colors, and the compiler knows when an identifier is meant to be a color. 
+
+* **Type-safe.** FuncSS has a static type sytem, and it knows the complete CSS specification. If you specify a value that is not allowed for a property, it will notify you compile-time. In LESS and Sass you don't really notice this until you render a page which uses that particular property.
+
+* **Cleaner syntax.**  In LESS and Sass you often use mixins for tasks like vendor prefixing and responsiveness. In FuncSS, you mostly use standard CSS syntax with non-standard names.
 
 ### How will we use it?
 
@@ -72,13 +87,13 @@ $(function() {
 <div class="col-md-6">
 
 {% highlight css %}
+@pseudoclass :toggled :on(click/click);
 #picture:toggled {
     transform:
         translate(0,-48%)
         rotate(pictureAngle())
         translate(0,48%);
 }
-@pseudoclass :toggled :on(click/click);
 @function pictureAngle():<angle>
     sin(t() / 3s * 360deg) * 10deg;
 {% endhighlight %}
@@ -95,16 +110,28 @@ Library functions like `t()` (which returns the time spent since page loading) w
 
 A working prototype will be released in the following months. You can already look at the [FuncSS repository](https://github.com/funcss-lang/funcss) on Github.
 
-### What other features will it have?
+### What features will it have?
 
-For a complete list of planned features, see the [Trello board](https://trello.com/b/EpfkVhaA/funcss).
+The following custom elements are planned to be definable:
+
+- functions
+- pseudoclasses
+- shorthand properties
+- types
+- units
+- media queries
+- pseudoelements
+- at-rules
+- colors
+- easings
+- transforms
+
+For a complete list of planned features and details, see the [Trello board](https://trello.com/b/EpfkVhaA/funcss).
 
 ### Will it be open-source?
 
-Yes. The language specifications will be released with an open license, and the Reference Implementation will be open-source, with MIT license. 
+Yes. The language specifications will be released with an open license, and the Reference Implementation will be open-source, with MIT license. But anyone will be allowed to make a commercial implementation.
 
-### Will it support my CSS preprocessor?
+### Can I support the project?
 
-Probably. The syntax of FuncSS is similar to pure CSS. Most CSS preprocessors will be able to process and generate the code needed for FuncSS, except for custom at-rules. So a solution is to only pass your preprocessor through a pure CSS-like part of your FuncSS code. This can be achieved with `@include`s. You can `@include "myfile.less";`, and the FuncSS compiler will run LESS on it before parsing it.
-
-
+Please, send comments, suggestions and questions to <kallo.bernat@gmail.com>. Your advice is very needed.
